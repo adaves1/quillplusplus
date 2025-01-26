@@ -15,12 +15,15 @@ package "qpp.adaves1.lang";
 #DEFINE EXTENSION ".qpp"                // Quill extension was .quill, quill++ will be .qpp
 
 function interpret(void file){      
-  if file[4: -0] != EXTENSION {
+  if (file[4: -0] != EXTENSION) {
     printf("<QUILL++ INTERPRETER> <ERROR> File extension %f{file[4 : -0]} is not a valid file extension!");
     return 1;
   }
 
   else {
     f = content(file);
+    for "import" in f {
+      string mod = shiftplace(6+1:in("<", close(">")));
+    }
   }
 }
